@@ -1,0 +1,649 @@
+{
+ "generated": "2026-08-01T18:43:36.568575+00:00",
+ "run_id": "20260801_1843",
+ "params": {
+  "timeframe": "swing",
+  "candidate_type": "all",
+  "swing_start_date": "2023-01-01",
+  "holdout": "2025-01-01",
+  "intraday_lookback_days": "50",
+  "swing_symbols_file": "wide100.txt",
+  "intraday_symbols_file": "daytrade_watch_50.txt",
+  "arms": "ctl,be2,trail,partial,cap3,be2_12r,trail_chandelier,trail_2atr,runner",
+  "run_id": "20260801_1843"
+ },
+ "records": [
+  {
+   "candidate": "Zone Stack",
+   "engine": "swing scanner",
+   "tier": null,
+   "status": "PASS",
+   "n_total": 294,
+   "pf_all": 3.0227956597063916,
+   "n_cal": 107,
+   "pf_cal": 3.041324435318275,
+   "n_hold": 187,
+   "pf_hold": 3.012586621411399,
+   "pf_5bps": 2.8382424544053393,
+   "other_arms": {
+    "be2": {
+     "n": 300,
+     "pf": 3.90169014084507
+    },
+    "trail": {
+     "n": 292,
+     "pf": 3.4244089589382
+    },
+    "partial": {
+     "n": 294,
+     "pf": 3.435211267605634
+    },
+    "cap3": {
+     "n": 300,
+     "pf": 3.3481521156936265
+    },
+    "be2_12r": {
+     "n": 298,
+     "pf": 3.580037197768134
+    },
+    "trail_chandelier": {
+     "n": 297,
+     "pf": 3.4716037027770827
+    },
+    "trail_2atr": {
+     "n": 288,
+     "pf": 2.9884715842565073
+    },
+    "runner": {
+     "n": 290,
+     "pf": 3.4555995214870707
+    }
+   },
+   "report_rel": "candidates/campaign-zonestack/scanbt_zonestack_20260801_1830.html"
+  },
+  {
+   "candidate": "EP (Episodic Pivot)",
+   "engine": "swing scanner",
+   "tier": null,
+   "status": "FAIL",
+   "n_total": 601,
+   "pf_all": 1.1411092084184942,
+   "n_cal": 261,
+   "pf_cal": 1.3684064408661853,
+   "n_hold": 340,
+   "pf_hold": 0.990870722084595,
+   "pf_5bps": 1.0781693765895048,
+   "other_arms": {
+    "be2": {
+     "n": 610,
+     "pf": 0.9538030453858348
+    },
+    "trail": {
+     "n": 591,
+     "pf": 1.017223208342578
+    },
+    "partial": {
+     "n": 599,
+     "pf": 1.1163101094459063
+    },
+    "cap3": {
+     "n": 605,
+     "pf": 1.113925957164804
+    },
+    "be2_12r": {
+     "n": 607,
+     "pf": 0.9667725891130147
+    },
+    "trail_chandelier": {
+     "n": 608,
+     "pf": 0.9880377816599057
+    },
+    "trail_2atr": {
+     "n": 577,
+     "pf": 1.0647003619788176
+    },
+    "runner": {
+     "n": 567,
+     "pf": 1.2725416082423946
+    }
+   },
+   "report_rel": "candidates/campaign-ep/scanbt_ep_20260801_1828.html"
+  },
+  {
+   "candidate": "Multi-TF COG Stack",
+   "engine": "swing scanner",
+   "tier": null,
+   "status": "FAIL",
+   "n_total": 837,
+   "pf_all": 0.9458706925179451,
+   "n_cal": 308,
+   "pf_cal": 0.9443362653595647,
+   "n_hold": 529,
+   "pf_hold": 0.9468128968417581,
+   "pf_5bps": 0.9143739348633819,
+   "other_arms": {
+    "be2": {
+     "n": 850,
+     "pf": 1.0041965378562685
+    },
+    "trail": {
+     "n": 860,
+     "pf": 0.9208138420785661
+    },
+    "partial": {
+     "n": 860,
+     "pf": 0.9704560419111964
+    },
+    "cap3": {
+     "n": 934,
+     "pf": 0.8841012288445051
+    },
+    "be2_12r": {
+     "n": 845,
+     "pf": 0.9888950583009439
+    },
+    "trail_chandelier": {
+     "n": 865,
+     "pf": 0.9377188238308047
+    },
+    "trail_2atr": {
+     "n": 851,
+     "pf": 1.0015277109797154
+    },
+    "runner": {
+     "n": 833,
+     "pf": 0.9765508748524809
+    }
+   },
+   "report_rel": "candidates/campaign-cogstack/scanbt_cogstack_20260801_1829.html"
+  },
+  {
+   "candidate": "Trap (Failed Test)",
+   "engine": "swing scanner",
+   "tier": null,
+   "status": "FAIL",
+   "n_total": 1332,
+   "pf_all": 1.145709942869123,
+   "n_cal": 486,
+   "pf_cal": 1.1204930553088701,
+   "n_hold": 846,
+   "pf_hold": 1.1604484584241668,
+   "pf_5bps": 1.072817396020249,
+   "other_arms": {
+    "be2": {
+     "n": 1414,
+     "pf": 0.942465926499155
+    },
+    "trail": {
+     "n": 1270,
+     "pf": 0.9837518669998185
+    },
+    "partial": {
+     "n": 1362,
+     "pf": 1.0332863972755257
+    },
+    "cap3": {
+     "n": 1401,
+     "pf": 1.12602476158608
+    },
+    "be2_12r": {
+     "n": 1386,
+     "pf": 1.000565190231133
+    },
+    "trail_chandelier": {
+     "n": 1314,
+     "pf": 1.018461360112449
+    },
+    "trail_2atr": {
+     "n": 1231,
+     "pf": 1.0825607181980923
+    },
+    "runner": {
+     "n": 1283,
+     "pf": 1.4188379507475815
+    }
+   },
+   "report_rel": "candidates/campaign-trap/scanbt_trap_20260801_1832.html"
+  },
+  {
+   "candidate": "VCP",
+   "engine": "swing scanner",
+   "tier": null,
+   "status": "FAIL",
+   "n_total": 403,
+   "pf_all": 1.136739577648096,
+   "n_cal": 189,
+   "pf_cal": 1.2380072095387744,
+   "n_hold": 214,
+   "pf_hold": 1.0524615384615383,
+   "pf_5bps": 1.0859852927661224,
+   "other_arms": {
+    "be2": {
+     "n": 420,
+     "pf": 1.0320694620184125
+    },
+    "trail": {
+     "n": 405,
+     "pf": 1.5673614190687362
+    },
+    "partial": {
+     "n": 408,
+     "pf": 1.1831094572517697
+    },
+    "cap3": {
+     "n": 486,
+     "pf": 0.9945820722639466
+    },
+    "be2_12r": {
+     "n": 416,
+     "pf": 1.0806121114356717
+    },
+    "trail_chandelier": {
+     "n": 434,
+     "pf": 1.5084197707134759
+    },
+    "trail_2atr": {
+     "n": 375,
+     "pf": 1.8056594724220625
+    },
+    "runner": {
+     "n": 355,
+     "pf": 1.6806376322192977
+    }
+   },
+   "report_rel": "candidates/campaign-vcp/scanbt_vcp_20260801_1829.html"
+  },
+  {
+   "candidate": "Back Side",
+   "engine": "swing scanner",
+   "tier": null,
+   "status": "FAIL",
+   "n_total": 79,
+   "pf_all": 1.7989026063100133,
+   "n_cal": 30,
+   "pf_cal": 1.2270588235294118,
+   "n_hold": 49,
+   "pf_hold": 2.2987146529562983,
+   "pf_5bps": 1.708402761011149,
+   "other_arms": {
+    "be2": {
+     "n": 80,
+     "pf": 1.432357473035439
+    },
+    "trail": {
+     "n": 79,
+     "pf": 1.4802178899082568
+    },
+    "partial": {
+     "n": 80,
+     "pf": 1.4423645320197045
+    },
+    "cap3": {
+     "n": 80,
+     "pf": 1.428132678132678
+    },
+    "be2_12r": {
+     "n": 79,
+     "pf": 1.5984591679506932
+    },
+    "trail_chandelier": {
+     "n": 79,
+     "pf": 1.3363417569193743
+    },
+    "trail_2atr": {
+     "n": 79,
+     "pf": 1.5673480083857445
+    },
+    "runner": {
+     "n": 79,
+     "pf": 2.0397608370702542
+    }
+   },
+   "report_rel": "candidates/campaign-backside/scanbt_backside_20260801_1834.html"
+  },
+  {
+   "candidate": "Pullback (First Pullback)",
+   "engine": "swing scanner",
+   "tier": null,
+   "status": "PASS",
+   "n_total": 618,
+   "pf_all": 1.5165703118638547,
+   "n_cal": 250,
+   "pf_cal": 1.424126423243031,
+   "n_hold": 368,
+   "pf_hold": 1.582092667315987,
+   "pf_5bps": 1.4559623182451267,
+   "other_arms": {
+    "be2": {
+     "n": 644,
+     "pf": 1.455569461827284
+    },
+    "trail": {
+     "n": 637,
+     "pf": 1.3368153473408269
+    },
+    "partial": {
+     "n": 653,
+     "pf": 1.3852448535992838
+    },
+    "cap3": {
+     "n": 776,
+     "pf": 1.3278357212458047
+    },
+    "be2_12r": {
+     "n": 632,
+     "pf": 1.505124641709372
+    },
+    "trail_chandelier": {
+     "n": 677,
+     "pf": 1.3564360292971793
+    },
+    "trail_2atr": {
+     "n": 606,
+     "pf": 1.5740792916079693
+    },
+    "runner": {
+     "n": 582,
+     "pf": 1.6554708693967188
+    }
+   },
+   "report_rel": "candidates/campaign-pullback/scanbt_pullback_20260801_1831.html"
+  },
+  {
+   "candidate": "Gap-Fill Into Zone",
+   "engine": "swing scanner",
+   "tier": null,
+   "status": "FAIL",
+   "n_total": 673,
+   "pf_all": 0.9718224156895785,
+   "n_cal": 238,
+   "pf_cal": 1.2137415552680755,
+   "n_hold": 435,
+   "pf_hold": 0.8550060732257505,
+   "pf_5bps": 0.9176326125965205,
+   "other_arms": {
+    "be2": {
+     "n": 690,
+     "pf": 0.8292682926829269
+    },
+    "trail": {
+     "n": 678,
+     "pf": 1.4347560229913172
+    },
+    "partial": {
+     "n": 689,
+     "pf": 1.4973039593283008
+    },
+    "cap3": {
+     "n": 688,
+     "pf": 0.9558386411889597
+    },
+    "be2_12r": {
+     "n": 685,
+     "pf": 0.8754920706332247
+    },
+    "trail_chandelier": {
+     "n": 688,
+     "pf": 1.4679204972161077
+    },
+    "trail_2atr": {
+     "n": 674,
+     "pf": 1.4808116706313947
+    },
+    "runner": {
+     "n": 670,
+     "pf": 2.004980171539242
+    }
+   },
+   "report_rel": "candidates/campaign-gapfill/scanbt_gapfill_20260801_1836.html"
+  },
+  {
+   "candidate": "Nested Spring",
+   "engine": "swing scanner",
+   "tier": null,
+   "status": "FAIL",
+   "n_total": 15,
+   "pf_all": 0.014411529223378702,
+   "n_cal": 4,
+   "pf_cal": 0.0,
+   "n_hold": 11,
+   "pf_hold": 0.021201413427561835,
+   "pf_5bps": 0.01189428799117074,
+   "other_arms": {
+    "be2": {
+     "n": 15,
+     "pf": 0.014574898785425101
+    },
+    "trail": {
+     "n": 15,
+     "pf": 0.014388489208633093
+    },
+    "partial": {
+     "n": 15,
+     "pf": 0.055060728744939266
+    },
+    "cap3": {
+     "n": 15,
+     "pf": 0.026192703461178676
+    },
+    "be2_12r": {
+     "n": 15,
+     "pf": 0.014574898785425101
+    },
+    "trail_chandelier": {
+     "n": 15,
+     "pf": 0.055060728744939266
+    },
+    "trail_2atr": {
+     "n": 15,
+     "pf": 0.014051522248243558
+    },
+    "runner": {
+     "n": 15,
+     "pf": 0.014411529223378702
+    }
+   },
+   "report_rel": "candidates/campaign-spring/scanbt_spring_20260801_1838.html"
+  },
+  {
+   "candidate": "HTF Mean-Reversion",
+   "engine": "swing scanner",
+   "tier": null,
+   "status": "FAIL",
+   "n_total": 204,
+   "pf_all": 0.4935588809368901,
+   "n_cal": 76,
+   "pf_cal": 0.3758367346938775,
+   "n_hold": 128,
+   "pf_hold": 0.5715521903731747,
+   "pf_5bps": 0.4629662944438089,
+   "other_arms": {
+    "be2": {
+     "n": 207,
+     "pf": 0.4253545957208109
+    },
+    "trail": {
+     "n": 203,
+     "pf": 2.293886531510294
+    },
+    "partial": {
+     "n": 205,
+     "pf": 2.680767162573938
+    },
+    "cap3": {
+     "n": 208,
+     "pf": 0.4468345813478557
+    },
+    "be2_12r": {
+     "n": 208,
+     "pf": 0.4266387622393303
+    },
+    "trail_chandelier": {
+     "n": 204,
+     "pf": 2.405400927766733
+    },
+    "trail_2atr": {
+     "n": 203,
+     "pf": 2.2471331961187886
+    },
+    "runner": {
+     "n": 204,
+     "pf": 3.1484257871064467
+    }
+   },
+   "report_rel": "candidates/campaign-meanrev/scanbt_meanrev_20260801_1839.html"
+  },
+  {
+   "candidate": "Rails",
+   "engine": "swing scanner",
+   "tier": null,
+   "status": "FAIL",
+   "n_total": 2807,
+   "pf_all": 1.1413219127952057,
+   "n_cal": 1117,
+   "pf_cal": 1.266197959746347,
+   "n_hold": 1690,
+   "pf_hold": 1.068620369414921,
+   "pf_5bps": 1.083927922082398,
+   "other_arms": {
+    "be2": {
+     "n": 3060,
+     "pf": 1.078369711709758
+    },
+    "trail": {
+     "n": 2919,
+     "pf": 1.1502483016754839
+    },
+    "partial": {
+     "n": 3109,
+     "pf": 1.0936194454994304
+    },
+    "cap3": {
+     "n": 4687,
+     "pf": 1.1421511557398918
+    },
+    "be2_12r": {
+     "n": 2963,
+     "pf": 1.102089039256753
+    },
+    "trail_chandelier": {
+     "n": 3142,
+     "pf": 1.135111143187067
+    },
+    "trail_2atr": {
+     "n": 2692,
+     "pf": 1.2542409047263414
+    },
+    "runner": {
+     "n": 2574,
+     "pf": 1.1915386297980828
+    }
+   },
+   "report_rel": "candidates/campaign-rails/scanbt_rails_20260801_1837.html"
+  },
+  {
+   "candidate": "Swing Confluence Setups",
+   "engine": "swing confluence",
+   "tier": "A",
+   "status": "FAIL",
+   "n_total": 5688,
+   "pf_all": 1.0665289244676432,
+   "n_cal": 2075,
+   "pf_cal": 1.098144897501527,
+   "n_hold": 3613,
+   "pf_hold": 1.0487000811086595,
+   "pf_5bps": 0.9888588069752234,
+   "other_arms": {
+    "be2": {
+     "n": 6391,
+     "pf": 0.8657659454249343
+    },
+    "trail": {
+     "n": 4588,
+     "pf": 1.0034921932256855
+    },
+    "partial": {
+     "n": 5430,
+     "pf": 1.0143179777636266
+    },
+    "cap3": {
+     "n": 6116,
+     "pf": 1.0685144606326213
+    },
+    "be2_12r": {
+     "n": 6144,
+     "pf": 0.8985644307092571
+    },
+    "trail_chandelier": {
+     "n": 5141,
+     "pf": 0.958500625396002
+    },
+    "trail_2atr": {
+     "n": 4226,
+     "pf": 1.142711659143455
+    },
+    "runner": {
+     "n": 4580,
+     "pf": 1.20667477281454
+    }
+   },
+   "report_rel": "candidates/campaign-confluence_setups/cs_report.html"
+  },
+  {
+   "candidate": "Swing Confluence Setups",
+   "engine": "swing confluence",
+   "tier": "B",
+   "status": "FAIL",
+   "n_total": 2511,
+   "pf_all": 0.9659422034918724,
+   "n_cal": 969,
+   "pf_cal": 0.9035089069885603,
+   "n_hold": 1542,
+   "pf_hold": 1.0060305879328924,
+   "pf_5bps": 0.8916301219834861,
+   "other_arms": {
+    "be2": {
+     "n": 2751,
+     "pf": 0.7540724975256182
+    },
+    "trail": {
+     "n": 2338,
+     "pf": 0.9379855518344961
+    },
+    "partial": {
+     "n": 2601,
+     "pf": 0.9311911288506489
+    },
+    "cap3": {
+     "n": 2751,
+     "pf": 0.97304335047759
+    },
+    "be2_12r": {
+     "n": 2662,
+     "pf": 0.7642891518514325
+    },
+    "trail_chandelier": {
+     "n": 2500,
+     "pf": 0.9097227545675226
+    },
+    "trail_2atr": {
+     "n": 2210,
+     "pf": 1.0643776295283327
+    },
+    "runner": {
+     "n": 2264,
+     "pf": 1.1214719152508823
+    }
+   },
+   "report_rel": "candidates/campaign-confluence_setups/cs_report.html"
+  },
+  {
+   "candidate": "Intraday Live Setups",
+   "engine": "intraday confluence",
+   "tier": null,
+   "status": "NO DATA",
+   "n_total": 0,
+   "report_rel": null
+  }
+ ]
+}
