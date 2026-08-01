@@ -1,0 +1,29 @@
+{
+ "ctl": [
+  {
+   "arm": "ctl",
+   "symbol": "QQQ",
+   "direction": "LONG",
+   "entry": 425.61,
+   "stop": 420.57,
+   "orig_stop": 420.57,
+   "target": 435.69000000000005,
+   "risk": 5.0400000000000205,
+   "open_idx": 320,
+   "bars_open": 1,
+   "entry_ts": "2024-04-12",
+   "trail_active": false,
+   "trail_stop": null,
+   "partial_taken": false,
+   "partial_r": null,
+   "hi_since_entry": 425.61,
+   "lo_since_entry": 425.61,
+   "hit_tier1": false,
+   "hit_tier2": false,
+   "state": "target",
+   "r": 2.0,
+   "exit": 435.69000000000005,
+   "segment": "calibration"
+  }
+ ]
+}
