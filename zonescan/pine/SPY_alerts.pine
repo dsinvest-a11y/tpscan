@@ -1,0 +1,32 @@
+//@version=6
+// TP Fable Scanner - ZONE PROXIMITY ALERTS (build v57.3, run )
+// SETUP (once per scan run): paste into the Pine editor -> save -> add to any chart ->
+// create ONE alert on this indicator with condition "Any alert() function call" ->
+// pick your notifications. That single alert covers every ticker below.
+// Bands = the nearest 16+ demand/supply zone per ticker as of this scan;
+// re-run the scan and re-paste to refresh. Symbol budget: 38.
+indicator("TP Fable Zone Alerts v57.3", overlay = false)
+
+proxPct = input.float(3.0, "Alert when price is within this % of a zone", minval = 0.1, step = 0.5)
+
+f_band(_c, _sym, _label, _kind, _top, _bot) =>
+    float dist = na
+    if _kind == "D" and _c >= _bot
+        dist := _c <= _top ? 0.0 : (_c - _top) / _c * 100
+    if _kind == "S" and _c <= _top
+        dist := _c >= _bot ? 0.0 : (_bot - _c) / _c * 100
+    var bool armed = true
+    if not na(dist) and dist <= proxPct and armed and barstate.isconfirmed
+        alert(_sym + " approaching " + _label + " - " +
+             str.tostring(dist, "#.##") + "% from band " +
+             str.tostring(_bot, "#.##") + "-" + str.tostring(_top, "#.##"),
+             alert.freq_once_per_bar)
+        armed := false
+    if not na(dist) and dist > proxPct * 1.5
+        armed := true
+    dist
+
+plot(na)
+c_SPY = request.security("SPY", "D", close)
+f_band(c_SPY, "SPY", "W Demand 16/20 P:2", "D", 720.6500, 708.3700)
+f_band(c_SPY, "SPY", "M30 Supply 17/20 P:4", "S", 741.8400, 741.4700)
