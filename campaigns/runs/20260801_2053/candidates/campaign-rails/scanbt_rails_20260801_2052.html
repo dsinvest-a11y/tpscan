@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>INDIGO — SCANNER BACKTEST — RAILS</title><style>
+body{background:#0B1220;color:#E6EDF7;font-family:system-ui,
+sans-serif;margin:14px;max-width:960px}
+h1{font-size:19px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border-bottom:1px solid #26314A;padding:7px 8px;
+text-align:left;vertical-align:middle}
+th{color:#7C8AA5;font-size:10.5px;letter-spacing:.6px;
+text-transform:uppercase}
+p{font-size:12.5px;color:#B9C4D8;line-height:1.7}
+a{color:#E8B04B}
+.b{display:inline-block;padding:2px 9px;border-radius:12px;
+font-size:11px;font-weight:700}
+@media(max-width:640px){body{padding:8px!important;font-size:13px}table{display:block;overflow-x:auto;white-space:nowrap}h1{font-size:19px}}</style></head><body>
+<h1>INDIGO <span style="color:#E8B04B">SCANNER BACKTEST — RAILS</span></h1>
+<p style="color:#8A97B5;font-size:11.5px;margin-top:-6px;
+letter-spacing:.5px">Intelligent Scanning, Systematic Edge</p>
+<p style="color:#E8B04B;font-size:12.5px"><b>Updated 2026-08-01 20:52 UTC · 4:52 PM ET</b></p>
+<div style="font-size:11px;color:#B9C4D8;background:#121A2C;border:1px solid #26314A;border-radius:6px;padding:7px 11px;margin:8px 0 14px"><span style="margin-right:16px"><b style="color:#7C8AA5">scanner:</b> rails</span><span style="margin-right:16px"><b style="color:#7C8AA5">symbols file:</b> top10.txt</span><span style="margin-right:16px"><b style="color:#7C8AA5">lookback (days):</b> 1308</span><span style="margin-right:16px"><b style="color:#7C8AA5">holdout split:</b> 2025-01-01</span><span style="margin-right:16px"><b style="color:#7C8AA5">arms:</b> ctl</span><span style="margin-right:16px"><b style="color:#7C8AA5">zone refresh (days):</b> 5</span><span style="margin-right:16px"><b style="color:#7C8AA5">time stop (bars):</b> 20</span><span style="margin-right:16px"><b style="color:#7C8AA5">min zone score:</b> 0</span><span style="margin-right:16px"><b style="color:#7C8AA5">untouched only:</b> False</span><span style="margin-right:16px"><b style="color:#7C8AA5">min impulse ratio:</b> 2.0</span><span style="margin-right:16px"><b style="color:#7C8AA5">require impulse in (item 3, opt-in):</b> False</span></div><div style="border:1.5px solid #E5484D;background:#E5484D18;color:#FF8A8E;border-radius:8px;padding:9px 13px;font-size:12px"><b>&#9888; UNVALIDATED SCANNER — WALK-FORWARD BACKTEST</b> — same unified exit ladder used across every candidate in this project (ctl/be2/trail/partial/cap3); no lookahead. Zone-anchored scanners refresh their zone list every few sessions rather than daily (documented approximation, never future-informed). This is a candidate-strategy backtest, not a graduated result — pre-registration and a proper campaign are still required before anything here could gate real capital.</div><p>285 closed trades across all arms.</p><h3 style="color:#E8B04B;font-size:13px">EXIT LADDER COMPARISON</h3><table><tr><th>Arm</th><th>Trades</th><th>Win%</th><th>Avg R</th><th>Median R</th><th>PF</th><th>Net R</th><th>MaxDD</th><th>Max loss streak</th><th>vs control</th></tr><tr><td>CTL — fixed 2R bracket (control)</td><td>285</td><td>49%</td><td>+0.18R</td><td>-0.04R</td><td>1.43</td><td>+52.2R</td><td>-7.0R</td><td>7</td><td style="color:#7C8AA5">(control)</td></tr></table><h3 style="color:#E8B04B;font-size:13px;margin-top:18px">COST SENSITIVITY (ctl arm)</h3><table><tr><th>Assumed cost</th><th>N</th><th>PF</th><th>Net R</th></tr><tr><td>0bps</td><td>285</td><td>1.43</td><td>+52.2R</td></tr><tr><td>5bps</td><td>285</td><td>1.35</td><td>+44.3R</td></tr><tr><td>10bps</td><td>285</td><td>1.28</td><td>+36.5R</td></tr></table><h3 style="color:#E8B04B;font-size:13px;margin-top:18px">CALIBRATION / HOLDOUT (split at 2025-01-01)</h3><table><tr><th>Arm</th><th>N</th><th>Win%</th><th>PF</th><th>Net R</th></tr><tr><td>CTL — fixed 2R bracket (control) (cal)</td><td>131</td><td>57%</td><td>2.07</td><td>+50.0R</td></tr><tr><td>CTL — fixed 2R bracket (control) (holdout)</td><td>154</td><td>42%</td><td>1.03</td><td>+2.3R</td></tr></table></body></html>
