@@ -17,5 +17,52 @@ font-size:11px;font-weight:700}
 <h1>INDIGO <span style="color:#E8B04B">HTF MEAN-REVERSION</span></h1>
 <p style="color:#8A97B5;font-size:11.5px;margin-top:-6px;
 letter-spacing:.5px">Intelligent Scanning, Systematic Edge</p>
-<p style="color:#E8B04B;font-size:12.5px"><b>Updated 2026-08-02 13:13 UTC · 9:13 AM ET · build v91</b></p>
-<div style="border:1.5px solid #E5484D;background:#E5484D18;color:#FF8A8E;border-radius:8px;padding:9px 13px;font-size:12px;margin:10px 0"><b>&#9888; UNVALIDATED SCAN</b> — no backtest has been run for this pattern. It implies no edge and never feeds the trade journal.</div><p>A washout — price stretched 2.5x ATR or more below its own 20-day average — landing INSIDE a qualified weekly/monthly demand zone. The HTF zone is the floor; this is never naked mean-reversion.</p><p>No candidates this run.</p><p style="font-size:10.5px;color:#4A5670;margin-top:18px">INDIGO build v91 &middot; generated 2026-08-02 13:13 UTC · 9:13 AM ET · build v91</p></body></html>
+<p style="color:#E8B04B;font-size:12.5px"><b>Updated 2026-08-02 13:36 UTC · 9:36 AM ET · build v91</b></p>
+<div style="border:1.5px solid #E5484D;background:#E5484D18;color:#FF8A8E;border-radius:8px;padding:9px 13px;font-size:12px;margin:10px 0"><b>&#9888; UNVALIDATED SCAN</b> — no backtest has been run for this pattern. It implies no edge and never feeds the trade journal.</div><p>A washout — price stretched 2.5x ATR or more below its own 20-day average — landing INSIDE a qualified weekly/monthly demand zone. The HTF zone is the floor; this is never naked mean-reversion.</p><div class="fbar" id="meanrevtbl_fbarwrap">
+<label class="tfb">Min score
+<input type="number" id="meanrevtbl_fscore" min="0" max="20" step="1" value="14"
+style="width:44px;background:#0B1220;color:#D8E1F0;border:1px solid
+#1E2A44;padding:2px 4px"></label>
+<label class="tfb">Min purity
+<input type="number" id="meanrevtbl_fpurity" min="0" max="4" step="1" value=""
+placeholder="any" style="width:44px;background:#0B1220;color:#D8E1F0;
+border:1px solid #1E2A44;padding:2px 4px"></label>
+<label class="tfb">Max base candles
+<input type="number" id="meanrevtbl_fmaxbase" min="0" step="1" value=""
+placeholder="any" style="width:52px;background:#0B1220;color:#D8E1F0;
+border:1px solid #1E2A44;padding:2px 4px"></label>
+<label class="tfb">Min impulse ratio
+<input type="number" id="meanrevtbl_fminimpulse" min="0" step="0.5" value=""
+placeholder="any" style="width:56px;background:#0B1220;color:#D8E1F0;
+border:1px solid #1E2A44;padding:2px 4px"></label>
+<span id="meanrevtbl_fcnt" style="color:#7C8AA5;padding-left:10px;
+font-size:11.5px"></span>
+</div><table id="meanrevtbl"><tr><th>Ticker</th><th>Dir</th><th>HTF zone</th><th>Stretch</th><th>Close</th><th>Note</th></tr><tr data-score="6" data-purity="0" data-base-candles="2" data-impulse-ratio="2.746"><td><a href="https://www.tradingview.com/chart/?symbol=TSLA" target="_blank" rel="noopener" style="color:#E6EDF7"><b>TSLA</b></a> <a href="zonescan/zone_scan_TSLA.html" title="zone drilldown" style="color:#5A688A;font-size:10px;text-decoration:none">&#9673;</a></td><td style="color:#2FBF71;font-weight:700">LONG</td><td>weekly 270.78&ndash;298.26</td><td>3.3x</td><td>311.21</td><td style="color:#8A97B5;font-size:11.5px">washed out 3.3xATR below its 20d average into a weekly demand zone</td></tr><tr data-score="14" data-purity="4" data-base-candles="2" data-impulse-ratio="2.511"><td><a href="https://www.tradingview.com/chart/?symbol=NVAX" target="_blank" rel="noopener" style="color:#E6EDF7"><b>NVAX</b></a> <a href="zonescan/zone_scan_NVAX.html" title="zone drilldown" style="color:#5A688A;font-size:10px;text-decoration:none">&#9673;</a></td><td style="color:#2FBF71;font-weight:700">LONG</td><td>weekly 6.36&ndash;6.83</td><td>3x</td><td>7.32</td><td style="color:#8A97B5;font-size:11.5px">washed out 3.0xATR below its 20d average into a weekly demand zone</td></tr><tr data-score="12" data-purity="0" data-base-candles="1" data-impulse-ratio="10.722"><td><a href="https://www.tradingview.com/chart/?symbol=NVAX" target="_blank" rel="noopener" style="color:#E6EDF7"><b>NVAX</b></a> <a href="zonescan/zone_scan_NVAX.html" title="zone drilldown" style="color:#5A688A;font-size:10px;text-decoration:none">&#9673;</a></td><td style="color:#2FBF71;font-weight:700">LONG</td><td>weekly 7.09&ndash;7.27</td><td>3x</td><td>7.32</td><td style="color:#8A97B5;font-size:11.5px">washed out 3.0xATR below its 20d average into a weekly demand zone</td></tr></table><script>
+function meanrevtblApply() {
+  var minScore = parseFloat(document.getElementById("meanrevtbl_fscore").value) || 0;
+  var minPurityRaw = document.getElementById("meanrevtbl_fpurity").value;
+  var minPurity = minPurityRaw === "" ? null : parseFloat(minPurityRaw);
+  var maxBaseRaw = document.getElementById("meanrevtbl_fmaxbase").value;
+  var maxBase = maxBaseRaw === "" ? null : parseFloat(maxBaseRaw);
+  var minImpulseRaw = document.getElementById("meanrevtbl_fminimpulse").value;
+  var minImpulse = minImpulseRaw === "" ? null : parseFloat(minImpulseRaw);
+  var n = 0;
+  document.querySelectorAll("#meanrevtbl tr[data-score]").forEach(function(tr) {
+    var sc = parseFloat(tr.dataset.score) || 0;
+    var pu = parseFloat(tr.dataset.purity);
+    var bc = parseFloat(tr.dataset.baseCandles);
+    var ir = parseFloat(tr.dataset.impulseRatio);
+    var ok = sc >= minScore
+      && (minPurity === null || pu === -1 || pu >= minPurity)
+      && (maxBase === null || bc === -1 || bc <= maxBase)
+      && (minImpulse === null || ir === -1 || ir >= minImpulse);
+    tr.style.display = ok ? "" : "none";
+    if (ok) n++;
+  });
+  document.getElementById("meanrevtbl_fcnt").textContent = n + " shown";
+}
+document.querySelectorAll("#meanrevtbl_fbarwrap input").forEach(function(i) {
+  i.addEventListener("input", meanrevtblApply);
+});
+meanrevtblApply();
+</script><p style="font-size:10.5px;color:#4A5670;margin-top:18px">INDIGO build v91 &middot; generated 2026-08-02 13:36 UTC · 9:36 AM ET · build v91</p></body></html>
