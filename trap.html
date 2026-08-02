@@ -17,5 +17,52 @@ font-size:11px;font-weight:700}
 <h1>INDIGO <span style="color:#E8B04B">FAILED TEST / TRAP REVERSAL</span></h1>
 <p style="color:#8A97B5;font-size:11.5px;margin-top:-6px;
 letter-spacing:.5px">Intelligent Scanning, Systematic Edge</p>
-<p style="color:#E8B04B;font-size:12.5px"><b>Updated 2026-08-02 12:13 UTC · 8:13 AM ET · build v91</b></p>
-<div style="border:1.5px solid #E5484D;background:#E5484D18;color:#FF8A8E;border-radius:8px;padding:9px 13px;font-size:12px;margin:10px 0"><b>&#9888; UNVALIDATED SCAN</b> — no backtest has been run for this pattern. It implies no edge and never feeds the trade journal.</div><p>A qualified zone whose protective edge was BROKEN intrabar in the last three sessions, then RECLAIMED — the false break that traps the breakout crowd and fuels the reversal.</p><table><tr><th>Ticker</th><th>Dir</th><th>Zone</th><th>Trap extreme</th><th>Close</th><th>Note</th></tr><tr><td><a href="https://www.tradingview.com/chart/?symbol=GOOGL" target="_blank" rel="noopener" style="color:#E6EDF7"><b>GOOGL</b></a> <a href="zonescan/zone_scan_GOOGL.html" title="zone drilldown" style="color:#5A688A;font-size:10px;text-decoration:none">&#9673;</a></td><td style="color:#2FBF71;font-weight:700">LONG</td><td>daily 324.45&ndash;326.56</td><td>324.44</td><td>356.13</td><td style="color:#8A97B5;font-size:11.5px">false break of demand reclaimed — classic stop-hunt reversal</td></tr><tr><td><a href="https://www.tradingview.com/chart/?symbol=VALE" target="_blank" rel="noopener" style="color:#E6EDF7"><b>VALE</b></a> <a href="zonescan/zone_scan_VALE.html" title="zone drilldown" style="color:#5A688A;font-size:10px;text-decoration:none">&#9673;</a></td><td style="color:#2FBF71;font-weight:700">LONG</td><td>daily 14.6&ndash;14.7</td><td>14.49</td><td>15.06</td><td style="color:#8A97B5;font-size:11.5px">false break of demand reclaimed — classic stop-hunt reversal</td></tr></table><p style="font-size:10.5px;color:#4A5670;margin-top:18px">INDIGO build v91 &middot; generated 2026-08-02 12:13 UTC · 8:13 AM ET · build v91</p></body></html>
+<p style="color:#E8B04B;font-size:12.5px"><b>Updated 2026-08-02 12:32 UTC · 8:32 AM ET · build v91</b></p>
+<div style="border:1.5px solid #E5484D;background:#E5484D18;color:#FF8A8E;border-radius:8px;padding:9px 13px;font-size:12px;margin:10px 0"><b>&#9888; UNVALIDATED SCAN</b> — no backtest has been run for this pattern. It implies no edge and never feeds the trade journal.</div><p>A qualified zone whose protective edge was BROKEN intrabar in the last three sessions, then RECLAIMED — the false break that traps the breakout crowd and fuels the reversal.</p><div class="fbar" id="traptbl_fbarwrap">
+<label class="tfb">Min score
+<input type="number" id="traptbl_fscore" min="0" max="20" step="1" value="14"
+style="width:44px;background:#0B1220;color:#D8E1F0;border:1px solid
+#1E2A44;padding:2px 4px"></label>
+<label class="tfb">Min purity
+<input type="number" id="traptbl_fpurity" min="0" max="4" step="1" value=""
+placeholder="any" style="width:44px;background:#0B1220;color:#D8E1F0;
+border:1px solid #1E2A44;padding:2px 4px"></label>
+<label class="tfb">Max base candles
+<input type="number" id="traptbl_fmaxbase" min="0" step="1" value=""
+placeholder="any" style="width:52px;background:#0B1220;color:#D8E1F0;
+border:1px solid #1E2A44;padding:2px 4px"></label>
+<label class="tfb">Min impulse ratio
+<input type="number" id="traptbl_fminimpulse" min="0" step="0.5" value=""
+placeholder="any" style="width:56px;background:#0B1220;color:#D8E1F0;
+border:1px solid #1E2A44;padding:2px 4px"></label>
+<span id="traptbl_fcnt" style="color:#7C8AA5;padding-left:10px;
+font-size:11.5px"></span>
+</div><table id="traptbl"><tr><th>Ticker</th><th>Dir</th><th>Zone</th><th>Trap extreme</th><th>Close</th><th>Note</th></tr><tr data-score="18" data-purity="4" data-base-candles="1" data-impulse-ratio="5.445"><td><a href="https://www.tradingview.com/chart/?symbol=GOOGL" target="_blank" rel="noopener" style="color:#E6EDF7"><b>GOOGL</b></a> <a href="zonescan/zone_scan_GOOGL.html" title="zone drilldown" style="color:#5A688A;font-size:10px;text-decoration:none">&#9673;</a></td><td style="color:#2FBF71;font-weight:700">LONG</td><td>daily 324.45&ndash;326.56</td><td>324.44</td><td>356.13</td><td style="color:#8A97B5;font-size:11.5px">false break of demand reclaimed — classic stop-hunt reversal</td></tr><tr data-score="16" data-purity="4" data-base-candles="1" data-impulse-ratio="4.898"><td><a href="https://www.tradingview.com/chart/?symbol=VALE" target="_blank" rel="noopener" style="color:#E6EDF7"><b>VALE</b></a> <a href="zonescan/zone_scan_VALE.html" title="zone drilldown" style="color:#5A688A;font-size:10px;text-decoration:none">&#9673;</a></td><td style="color:#2FBF71;font-weight:700">LONG</td><td>daily 14.6&ndash;14.7</td><td>14.49</td><td>15.06</td><td style="color:#8A97B5;font-size:11.5px">false break of demand reclaimed — classic stop-hunt reversal</td></tr></table><script>
+function traptblApply() {
+  var minScore = parseFloat(document.getElementById("traptbl_fscore").value) || 0;
+  var minPurityRaw = document.getElementById("traptbl_fpurity").value;
+  var minPurity = minPurityRaw === "" ? null : parseFloat(minPurityRaw);
+  var maxBaseRaw = document.getElementById("traptbl_fmaxbase").value;
+  var maxBase = maxBaseRaw === "" ? null : parseFloat(maxBaseRaw);
+  var minImpulseRaw = document.getElementById("traptbl_fminimpulse").value;
+  var minImpulse = minImpulseRaw === "" ? null : parseFloat(minImpulseRaw);
+  var n = 0;
+  document.querySelectorAll("#traptbl tr[data-score]").forEach(function(tr) {
+    var sc = parseFloat(tr.dataset.score) || 0;
+    var pu = parseFloat(tr.dataset.purity);
+    var bc = parseFloat(tr.dataset.baseCandles);
+    var ir = parseFloat(tr.dataset.impulseRatio);
+    var ok = sc >= minScore
+      && (minPurity === null || pu === -1 || pu >= minPurity)
+      && (maxBase === null || bc === -1 || bc <= maxBase)
+      && (minImpulse === null || ir === -1 || ir >= minImpulse);
+    tr.style.display = ok ? "" : "none";
+    if (ok) n++;
+  });
+  document.getElementById("traptbl_fcnt").textContent = n + " shown";
+}
+document.querySelectorAll("#traptbl_fbarwrap input").forEach(function(i) {
+  i.addEventListener("input", traptblApply);
+});
+traptblApply();
+</script><p style="font-size:10.5px;color:#4A5670;margin-top:18px">INDIGO build v91 &middot; generated 2026-08-02 12:32 UTC · 8:32 AM ET · build v91</p></body></html>
