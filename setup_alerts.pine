@@ -1,5 +1,5 @@
 //@version=6
-// TP Fable Scanner - ZONE PROXIMITY ALERTS (build setups, run 2026-08-03 11:50 UTC)
+// TP Fable Scanner - ZONE PROXIMITY ALERTS (build setups, run 2026-08-03 18:37 UTC)
 // SETUP (once per scan run): paste into the Pine editor -> save -> add to any chart ->
 // create ONE alert on this indicator with condition "Any alert() function call" ->
 // pick your notifications. That single alert covers every ticker below.
@@ -27,9 +27,7 @@ f_band(_c, _sym, _label, _kind, _top, _bot) =>
     dist
 
 plot(na)
-c_MMM = request.security("MMM", "D", close)
-f_band(c_MMM, "MMM", "H4 Demand 17/20 P:4", "D", 150.9000, 150.1400)
-c_PEP = request.security("PEP", "D", close)
-f_band(c_PEP, "PEP", "H4 Demand 20/20 P:4", "D", 136.6600, 136.1300)
+c_DE = request.security("DE", "D", close)
+f_band(c_DE, "DE", "H4 Demand 17/20 P:4", "D", 586.2700, 582.5000)
 c_XOM = request.security("XOM", "D", close)
 f_band(c_XOM, "XOM", "H4 Demand 19/20 P:4", "D", 147.8000, 147.1700)
