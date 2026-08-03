@@ -1,0 +1,232 @@
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zone Radar</title><style>
+body{background:#0B1220;color:#D8E1F0;font-family:Archivo,-apple-system,
+sans-serif;margin:18px}
+h1{font-size:24px}h1 span{color:#F5A623}
+.upd{color:#F5A623;font-size:15px;font-weight:600;margin:2px 0 8px}
+.sub{color:#7C8AA5;font-size:14px;margin:2px 0 10px;max-width:900px;
+line-height:1.5}
+.tiles{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.tile{border:1px solid #1E2A44;border-radius:8px;padding:10px 18px;
+cursor:pointer;text-align:center;background:#111B2E}
+.tile.on{border-color:#F5A623}
+.tile b{display:block;font-size:22px}
+.fbar{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px;
+align-items:center;font-size:13px}
+.tfb{border:1px solid #1E2A44;padding:5px 8px;border-radius:6px;
+background:#111B2E;cursor:pointer}
+select{background:#111B2E;color:#D8E1F0;border:1px solid #1E2A44;
+padding:6px 8px;font-family:inherit;font-size:13px}
+table{border-collapse:collapse;width:100%}
+th{font-size:15px;text-transform:uppercase;letter-spacing:.06em;
+text-align:left;padding:10px 12px;border-bottom:2px solid #1E2A44;
+color:#E8B04B;cursor:pointer;user-select:none}
+td{padding:9px 12px;border-bottom:1px solid #16203A;font-size:14px;
+vertical-align:top}
+tr:hover td{background:#111B2E}
+.symcell a{color:#D8E1F0;text-decoration:none}
+.nz{color:#7C8AA5;font-size:11px}
+.zl{display:grid;grid-template-columns:78px 66px 104px 150px 96px
+52px 82px 72px;gap:8px;align-items:center;padding:3px 4px;border-bottom:1px dashed
+#16203A;font-size:13px}
+.zl:last-child{border-bottom:none}
+.zl.closest{background:#1A2440;border-left:3px solid #F5A623;
+border-radius:3px}
+.zl.closest .c4{color:#FFD37A}
+.zlh{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+border-bottom:none;color:#E8B04B}
+.sk{cursor:pointer}
+.hrw{color:#E5484D;font-size:11px;white-space:nowrap}
+.chr{font-size:10.5px;color:#5A688A;white-space:nowrap;justify-self:start;align-self:center;padding-left:2px;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:760px){.zl{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:640px){{body{{padding:8px!important;font-size:13px}}table{{display:block;overflow-x:auto;white-space:nowrap}}h1{{font-size:19px}}}}</style></head><body><a href="intraday_hub.html" style="position:fixed;top:10px;right:14px;background:#1A2440;color:#E8B04B;border:1px solid #E8B04B66;border-radius:8px;padding:5px 12px;font-size:12px;font-weight:700;text-decoration:none;z-index:50">&#8962; HOME</a>
+<h1>INDIGO <span>PRICE APPROACHING ZONE</span></h1>
+<p class="sub" style="color:#8A97B5;font-size:12px;margin-top:-6px;
+letter-spacing:.5px">Intelligent Scanning, Systematic Edge</p>
+<p class="upd">Updated 2026-08-03 13:43 UTC · 9:43 AM ET</p>
+<p class="sub"><b>How to use this report:</b> each row is one
+ticker; the lines inside it are that ticker's price zones — areas
+where buying (demand) or selling (supply) previously concentrated.
+<b>IN ZONE</b> means the price is inside the zone right now;
+<b>APPROACHING</b> means it is closing in; <b>WATCH</b> means it is
+on the radar but further away. Score rates the zone's quality; only
+zones scoring 16+ (of 20) are listed, so the visible range runs
+16&ndash;20 by design. Tickers are ordered by <b>how close price is
+to a zone, weighted toward higher timeframes</b> — a monthly or
+weekly zone nearby ranks ahead of an equally close 30-minute zone.
+A red &#9888; warning means an opposing zone
+sits close by (measured in multiples of the zone's own height), so
+the price may have little room to run — those entries rank lower.
+Tap a ticker for its full zone report with charts. Filter with the
+tiles, timeframe boxes and toggles; click Score or Distance to
+sort.</p>
+<div class="tiles">
+<div class="tile on" data-f="ACTIVE"><b style="color:#F5A623">27</b>Active</div>
+<div class="tile" data-f="IN_ZONE"><b style="color:#2FBF71">0</b>In Zone</div>
+<div class="tile" data-f="APPROACHING"><b style="color:#E8B04B">27</b>Approaching</div>
+<div class="tile" data-f="WATCH"><b style="color:#7C8AA5">0</b>Watch</div>
+</div>
+<div class="fbar">
+<label class="tfb"><input type="checkbox" class="ptf" value="monthly" checked> Monthly</label><label class="tfb"><input type="checkbox" class="ptf" value="weekly" checked> Weekly</label><label class="tfb"><input type="checkbox" class="ptf" value="daily" checked> Daily</label><label class="tfb"><input type="checkbox" class="ptf" value="4h" checked> 4-Hour</label><label class="tfb"><input type="checkbox" class="ptf" value="1h" checked> 1-Hour</label><label class="tfb"><input type="checkbox" class="ptf" value="30m" checked> 30-Min</label>
+<select id="fkind"><option value="">Demand + Supply</option>
+<option value="demand">Demand only</option>
+<option value="supply">Supply only</option></select>
+<label class="tfb"><input type="checkbox" id="funt"> Untouched
+zones only</label>
+<label class="tfb"><input type="checkbox" id="fstk"> Stacked zones
+only</label>
+<label class="tfb">Zone proximity &le;
+<input type="number" id="fprox" min="0" step="0.5" value=""
+placeholder="any %"
+style="width:52px;background:#0B1220;color:#D8E1F0;border:1px solid
+#1E2A44;padding:2px 4px"> %</label>
+<label class="tfb" title="Stacks with the untouched/purity toggle above -- this is a numeric floor on the same subscore, for a threshold other than the fixed 4/4">Min score
+<input type="number" id="fminscore" min="0" max="20" step="1" value="0"
+style="width:44px;background:#0B1220;color:#D8E1F0;border:1px solid
+#1E2A44;padding:2px 4px"></label>
+<label class="tfb" title="Base candles: fewer = a sharper, tighter formation. -1 (missing data) always passes this filter">Max base candles
+<input type="number" id="fmaxbase" min="0" step="1" value=""
+placeholder="any"
+style="width:44px;background:#0B1220;color:#D8E1F0;border:1px solid
+#1E2A44;padding:2px 4px"></label>
+<label class="tfb" title="Impulse-out ratio: the actual multiple of zone height the breakout traveled (2.0 is the detection floor -- everything already clears that). -1 (missing data) always passes this filter">Min impulse ratio
+<input type="number" id="fminimpulse" min="0" step="0.5" value=""
+placeholder="any"
+style="width:52px;background:#0B1220;color:#D8E1F0;border:1px solid
+#1E2A44;padding:2px 4px"></label>
+</div>
+<table><thead><tr>
+<th data-k="sym">Ticker</th>
+<th><div class="zl zlh">
+<span class="c1">Timeframe</span>
+<span class="c2">Type</span>
+<span class="c3">Status</span>
+<span class="c4">Zone</span>
+<span class="chr" style="color:#E8B04B">Headroom</span>
+<span class="c5 sk" data-sort="score">Score &#8645;</span>
+<span class="c6 sk" data-sort="dist">Distance &#8645;</span>
+<span class="c7">Last Price</span></div></th>
+</tr></thead><tbody>
+<tr data-sym="BAC"><td class="symcell"><a href="zonescan/zone_scan_BAC.html"><b>BAC</b></a><br><span class="nz">1 zone</span></td><td class="zcell"><div class="zl closest" data-tf="1h" data-kind="demand" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="0.24" data-purity="4" data-base-candles="3" data-impulse-ratio="2.32" data-score="17"><span class="c1">1-Hour</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">61.70 &ndash; 61.83</span><span class="chr"></span><span class="c5">17</span><span class="c6">0.2% away</span><span class="c7"></span></div></td></tr><tr data-sym="SPY"><td class="symcell"><a href="zonescan/zone_scan_SPY.html"><b>SPY</b></a><br><span class="nz">2 zones</span></td><td class="zcell"><div class="zl closest" data-tf="30m" data-kind="demand" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="0.29" data-purity="4" data-base-candles="1" data-impulse-ratio="2.651" data-score="16"><span class="c1">30-Min</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">743.99 &ndash; 744.62</span><span class="chr"></span><span class="c5">16</span><span class="c6">0.3% away</span><span class="c7"></span></div><div class="zl closest" data-tf="30m" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="0.4" data-purity="4" data-base-candles="2" data-impulse-ratio="4.885" data-score="17"><span class="c1">30-Min</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">749.76 &ndash; 750.02</span><span class="chr"></span><span class="c5">17</span><span class="c6">0.4% away</span><span class="c7"></span></div></td></tr><tr data-sym="MA"><td class="symcell"><a href="zonescan/zone_scan_MA.html"><b>MA</b></a><br><span class="nz">3 zones</span></td><td class="zcell"><div class="zl closest" data-tf="30m" data-kind="demand" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="0.69" data-purity="4" data-base-candles="2" data-impulse-ratio="2.764" data-score="18"><span class="c1">30-Min</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">568.16 &ndash; 569.41</span><span class="chr"></span><span class="c5">18</span><span class="c6">0.7% away</span><span class="c7"></span></div><div class="zl closest" data-tf="daily" data-kind="demand" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="1.85" data-purity="4" data-base-candles="1" data-impulse-ratio="2.744" data-score="17"><span class="c1">Daily</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">557.43 &ndash; 562.75</span><span class="chr"></span><span class="c5">17</span><span class="c6">1.9% away</span><span class="c7"></span></div><div class="zl" data-tf="4h" data-kind="demand" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="2.23" data-purity="4" data-base-candles="1" data-impulse-ratio="3.043" data-score="19"><span class="c1">4-Hour</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">557.88 &ndash; 560.57</span><span class="chr"></span><span class="c5">19</span><span class="c6">2.2% away</span><span class="c7"></span></div></td></tr><tr data-sym="CVX"><td class="symcell"><a href="zonescan/zone_scan_CVX.html"><b>CVX</b></a><br><span class="nz">2 zones</span></td><td class="zcell"><div class="zl closest" data-tf="30m" data-kind="demand" data-st="APPROACHING" data-untouched="0" data-stacked="0" data-dist="0.79" data-purity="2" data-base-candles="1" data-impulse-ratio="5.528" data-score="17"><span class="c1">30-Min</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">195.12 &ndash; 195.33</span><span class="chr"></span><span class="c5">17</span><span class="c6">0.8% away</span><span class="c7"></span></div><div class="zl closest" data-tf="1h" data-kind="demand" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="1.28" data-purity="4" data-base-candles="1" data-impulse-ratio="4.5" data-score="19"><span class="c1">1-Hour</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">193.87 &ndash; 194.36</span><span class="chr"></span><span class="c5">19</span><span class="c6">1.3% away</span><span class="c7"></span></div></td></tr><tr data-sym="ADBE"><td class="symcell"><a href="zonescan/zone_scan_ADBE.html"><b>ADBE</b></a><br><span class="nz">1 zone</span></td><td class="zcell"><div class="zl closest" data-tf="1h" data-kind="demand" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="0.95" data-purity="4" data-base-candles="1" data-impulse-ratio="3.386" data-score="17"><span class="c1">1-Hour</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">247.34 &ndash; 248.04</span><span class="chr"></span><span class="c5">17</span><span class="c6">0.9% away</span><span class="c7"></span></div></td></tr><tr data-sym="UNH"><td class="symcell"><a href="zonescan/zone_scan_UNH.html"><b>UNH</b></a><br><span class="nz">3 zones</span></td><td class="zcell"><div class="zl closest" data-tf="weekly" data-kind="demand" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="1.83" data-purity="4" data-base-candles="1" data-impulse-ratio="2.613" data-score="19"><span class="c1">Weekly</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">398.59 &ndash; 406.70</span><span class="chr"></span><span class="c5">19</span><span class="c6">1.8% away</span><span class="c7"></span></div><div class="zl closest" data-tf="30m" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="1.51" data-purity="4" data-base-candles="2" data-impulse-ratio="2.204" data-score="18"><span class="c1">30-Min</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">420.53 &ndash; 421.41</span><span class="chr"></span><span class="c5">18</span><span class="c6">1.5% away</span><span class="c7"></span></div><div class="zl" data-tf="30m" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="2.09" data-purity="4" data-base-candles="1" data-impulse-ratio="5.284" data-score="18"><span class="c1">30-Min</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">422.93 &ndash; 423.89</span><span class="chr"></span><span class="c5">18</span><span class="c6">2.1% away</span><span class="c7"></span></div></td></tr><tr data-sym="IWM"><td class="symcell"><a href="zonescan/zone_scan_IWM.html"><b>IWM</b></a><br><span class="nz">1 zone</span></td><td class="zcell"><div class="zl closest" data-tf="1h" data-kind="supply" data-st="APPROACHING" data-untouched="0" data-stacked="0" data-dist="1.1" data-purity="2" data-base-candles="2" data-impulse-ratio="3.951" data-score="17"><span class="c1">1-Hour</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">294.39 &ndash; 295.00</span><span class="chr"></span><span class="c5">17</span><span class="c6">1.1% away</span><span class="c7"></span></div></td></tr><tr data-sym="UBER"><td class="symcell"><a href="zonescan/zone_scan_UBER.html"><b>UBER</b></a><br><span class="nz">1 zone</span></td><td class="zcell"><div class="zl closest" data-tf="30m" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="1.18" data-purity="4" data-base-candles="1" data-impulse-ratio="17.281" data-score="20"><span class="c1">30-Min</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">71.20 &ndash; 71.36</span><span class="chr"></span><span class="c5">20</span><span class="c6">1.2% away</span><span class="c7"></span></div></td></tr><tr data-sym="RIVN"><td class="symcell"><a href="zonescan/zone_scan_RIVN.html"><b>RIVN</b></a><br><span class="nz">1 zone</span></td><td class="zcell"><div class="zl" data-tf="daily" data-kind="demand" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="2.24" data-purity="4" data-base-candles="2" data-impulse-ratio="4.769" data-score="20"><span class="c1">Daily</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">14.35 &ndash; 14.87</span><span class="chr"></span><span class="c5">20</span><span class="c6">2.2% away</span><span class="c7"></span></div></td></tr><tr data-sym="CAT"><td class="symcell"><a href="zonescan/zone_scan_CAT.html"><b>CAT</b></a><br><span class="nz">1 zone</span></td><td class="zcell"><div class="zl closest" data-tf="4h" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="1.99" data-purity="4" data-base-candles="2" data-impulse-ratio="5.387" data-score="18"><span class="c1">4-Hour</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">831.15 &ndash; 844.04</span><span class="chr"></span><span class="c5">18</span><span class="c6">2.0% away</span><span class="c7"></span></div></td></tr><tr data-sym="NFLX"><td class="symcell"><a href="zonescan/zone_scan_NFLX.html"><b>NFLX</b></a><br><span class="nz">2 zones</span></td><td class="zcell"><div class="zl closest" data-tf="1h" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="1.79" data-purity="4" data-base-candles="3" data-impulse-ratio="7.162" data-score="18"><span class="c1">1-Hour</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">72.98 &ndash; 73.32</span><span class="chr"></span><span class="c5">18</span><span class="c6">1.8% away</span><span class="c7"></span></div><div class="zl" data-tf="1h" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="2.44" data-purity="4" data-base-candles="2" data-impulse-ratio="15.902" data-score="18"><span class="c1">1-Hour</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">73.44 &ndash; 73.73</span><span class="chr"></span><span class="c5">18</span><span class="c6">2.4% away</span><span class="c7"></span></div></td></tr><tr data-sym="BA"><td class="symcell"><a href="zonescan/zone_scan_BA.html"><b>BA</b></a><br><span class="nz">1 zone</span></td><td class="zcell"><div class="zl closest" data-tf="30m" data-kind="demand" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="1.8" data-purity="4" data-base-candles="1" data-impulse-ratio="3.01" data-score="18"><span class="c1">30-Min</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">211.30 &ndash; 212.26</span><span class="chr"></span><span class="c5">18</span><span class="c6">1.8% away</span><span class="c7"></span></div></td></tr><tr data-sym="GS"><td class="symcell"><a href="zonescan/zone_scan_GS.html"><b>GS</b></a><br><span class="nz">2 zones</span></td><td class="zcell"><div class="zl closest" data-tf="1h" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="1.97" data-purity="4" data-base-candles="1" data-impulse-ratio="20.011" data-score="20"><span class="c1">1-Hour</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">1038.03 &ndash; 1040.66</span><span class="chr"></span><span class="c5">20</span><span class="c6">2.0% away</span><span class="c7"></span></div><div class="zl" data-tf="1h" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="2.61" data-purity="4" data-base-candles="1" data-impulse-ratio="3.494" data-score="20"><span class="c1">1-Hour</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">1044.49 &ndash; 1047.71</span><span class="chr"></span><span class="c5">20</span><span class="c6">2.6% away</span><span class="c7"></span></div></td></tr><tr data-sym="DIS"><td class="symcell"><a href="zonescan/zone_scan_DIS.html"><b>DIS</b></a><br><span class="nz">1 zone</span></td><td class="zcell"><div class="zl" data-tf="4h" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="2.65" data-purity="4" data-base-candles="1" data-impulse-ratio="6.979" data-score="17"><span class="c1">4-Hour</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">98.75 &ndash; 99.23</span><span class="chr"></span><span class="c5">17</span><span class="c6">2.6% away</span><span class="c7"></span></div></td></tr><tr data-sym="ABNB"><td class="symcell"><a href="zonescan/zone_scan_ABNB.html"><b>ABNB</b></a><br><span class="nz">1 zone</span></td><td class="zcell"><div class="zl" data-tf="30m" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="2.26" data-purity="4" data-base-candles="1" data-impulse-ratio="19.884" data-score="16"><span class="c1">30-Min</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">154.85 &ndash; 155.07</span><span class="chr"></span><span class="c5">16</span><span class="c6">2.3% away</span><span class="c7"></span></div></td></tr><tr data-sym="QQQ"><td class="symcell"><a href="zonescan/zone_scan_QQQ.html"><b>QQQ</b></a><br><span class="nz">2 zones</span></td><td class="zcell"><div class="zl" data-tf="4h" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="2.93" data-purity="4" data-base-candles="1" data-impulse-ratio="10.596" data-score="19"><span class="c1">4-Hour</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">708.09 &ndash; 709.65</span><span class="chr"></span><span class="c5">19</span><span class="c6">2.9% away</span><span class="c7"></span></div><div class="zl" data-tf="1h" data-kind="supply" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="2.81" data-purity="4" data-base-candles="1" data-impulse-ratio="23.803" data-score="20"><span class="c1">1-Hour</span><span class="c2" style="color:#E5484D">Supply</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">707.27 &ndash; 707.93</span><span class="chr"></span><span class="c5">20</span><span class="c6">2.8% away</span><span class="c7"></span></div></td></tr><tr data-sym="MSFT"><td class="symcell"><a href="zonescan/zone_scan_MSFT.html"><b>MSFT</b></a><br><span class="nz">1 zone</span></td><td class="zcell"><div class="zl" data-tf="30m" data-kind="demand" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="2.52" data-purity="4" data-base-candles="1" data-impulse-ratio="6.19" data-score="20"><span class="c1">30-Min</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">451.72 &ndash; 453.38</span><span class="chr"></span><span class="c5">20</span><span class="c6">2.5% away</span><span class="c7"></span></div></td></tr><tr data-sym="JPM"><td class="symcell"><a href="zonescan/zone_scan_JPM.html"><b>JPM</b></a><br><span class="nz">1 zone</span></td><td class="zcell"><div class="zl" data-tf="1h" data-kind="demand" data-st="APPROACHING" data-untouched="1" data-stacked="0" data-dist="2.67" data-purity="4" data-base-candles="1" data-impulse-ratio="5.352" data-score="19"><span class="c1">1-Hour</span><span class="c2" style="color:#2FBF71">Demand</span><span class="c3" style="color:#E8B04B;font-weight:600">APPROACHING</span><span class="c4">341.83 &ndash; 342.37</span><span class="chr"></span><span class="c5">19</span><span class="c6">2.7% away</span><span class="c7"></span></div></td></tr>
+</tbody></table>
+<script>
+var stF="ACTIVE";
+function stOK(st){
+ if(stF==="ALL")return true;
+ if(stF==="ACTIVE")return st==="IN_ZONE"||st==="APPROACHING";
+ return st===stF;
+}
+function activeTfs(){
+ return Array.from(document.querySelectorAll(".ptf"))
+  .filter(function(c){return c.checked;})
+  .map(function(c){return c.value;});
+}
+function refresh(){
+ var tfs=activeTfs();
+ var kind=document.getElementById("fkind").value;
+ var unt=document.getElementById("funt").checked;
+ var stk=document.getElementById("fstk").checked;
+ var pv=parseFloat(document.getElementById("fprox").value);
+ var minScore=parseFloat(document.getElementById("fminscore").value)||0;
+ var maxBaseRaw=document.getElementById("fmaxbase").value;
+ var maxBase=maxBaseRaw===""?null:parseFloat(maxBaseRaw);
+ var minImpulseRaw=document.getElementById("fminimpulse").value;
+ var minImpulse=minImpulseRaw===""?null:parseFloat(minImpulseRaw);
+ var cnt={IN_ZONE:0,APPROACHING:0,WATCH:0};
+ document.querySelectorAll("tbody tr").forEach(function(tr){
+  var vis=0;
+  tr.querySelectorAll("td .zl").forEach(function(z){
+   var d=parseFloat(z.getAttribute("data-dist"))||0;
+   var st=z.getAttribute("data-st");
+   var sc=parseFloat(z.getAttribute("data-score"))||0;
+   var bc=parseFloat(z.getAttribute("data-base-candles"));
+   var ir=parseFloat(z.getAttribute("data-impulse-ratio"));
+   // v61: base match ignores the status-tile selection so the
+   // tile numbers always show what EACH status would contain
+   // under the current TF/kind/toggle filters
+   var base=tfs.indexOf(z.getAttribute("data-tf"))>=0
+    &&(!kind||z.getAttribute("data-kind")===kind)
+    &&(!unt||z.getAttribute("data-untouched")==="1")
+    &&(!stk||z.getAttribute("data-stacked")==="1")
+    &&sc>=minScore
+    // 2026-08-02: proximity was previously read into `pv` but
+    // never actually applied as a filter -- only used below to
+    // toggle a "closest" highlight CSS class. The label ("Zone
+    // proximity <=") clearly implies filtering, so this was a
+    // real bug: a zone 2.9% away stayed visible even with the
+    // proximity input set to 1%. Now a genuine AND condition,
+    // same as every other control here.
+    &&(isNaN(pv)||d<=pv)
+    // 2026-08-01 Phase 4: -1 means the row has no data for this
+    // subscore (older cached data, or a candidate type that never
+    // populated it) -- always passes rather than being silently
+    // excluded by a filter it has no way to satisfy.
+    &&(maxBase===null||bc===-1||bc<=maxBase)
+    &&(minImpulse===null||ir===-1||ir>=minImpulse);
+   if(base&&cnt[st]!==undefined)cnt[st]++;
+   var ok=base&&stOK(st);
+   z.style.display=ok?"grid":"none";
+   if(ok)vis++;
+   if(!isNaN(pv)){
+    z.className=z.className.replace(" closest","")
+     +((d<=pv&&ok)?" closest":"");
+   }
+  });
+  tr.style.display=vis?"":"none";
+ });
+ var m={ACTIVE:cnt.IN_ZONE+cnt.APPROACHING,IN_ZONE:cnt.IN_ZONE,
+        APPROACHING:cnt.APPROACHING,WATCH:cnt.WATCH};
+ document.querySelectorAll(".tile").forEach(function(t){
+  var b=t.querySelector("b");
+  var k=t.getAttribute("data-f");
+  if(b&&m[k]!==undefined)b.innerText=m[k];
+ });
+}
+document.querySelectorAll(".tile").forEach(function(t){
+ t.addEventListener("click",function(){
+  stF=t.getAttribute("data-f");
+  document.querySelectorAll(".tile").forEach(function(x){
+   x.className="tile"+(x===t?" on":"");});
+  refresh();
+ });
+});
+["fkind","funt","fstk","fprox","fminscore","fmaxbase","fminimpulse"].forEach(function(id){
+ document.getElementById(id).addEventListener("change",refresh);
+});
+document.querySelectorAll(".ptf").forEach(function(c){
+ c.addEventListener("change",refresh);
+});
+var sortAsc=true;
+function bestVal(tr,key){
+ var v=null;
+ tr.querySelectorAll("td .zl").forEach(function(z){
+  if(z.style.display==="none")return;
+  var x=parseFloat(z.getAttribute("data-"+key));
+  if(isNaN(x))return;
+  if(v===null||(key==="dist"?x<v:x>v))v=x;
+ });
+ return v===null?(key==="dist"?999:-1):v;
+}
+function doSort(key){
+ var tb=document.querySelector("tbody");
+ var rows=Array.from(tb.querySelectorAll("tr"));
+ rows.sort(function(a,b){
+  if(key==="sym"){
+   return a.getAttribute("data-sym")<b.getAttribute("data-sym")?-1:1;
+  }
+  var d=bestVal(a,key)-bestVal(b,key);
+  return key==="score"?-d:d;
+ });
+ if(!sortAsc)rows.reverse();
+ sortAsc=!sortAsc;
+ rows.forEach(function(r){tb.appendChild(r);});
+}
+var thSym=document.querySelector("th[data-k=sym]");
+if(thSym)thSym.addEventListener("click",function(){doSort("sym");});
+document.querySelectorAll(".sk").forEach(function(el){
+ el.addEventListener("click",function(){
+  doSort(el.getAttribute("data-sort"));});
+});
+refresh();
+</script></body></html>
