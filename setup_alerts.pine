@@ -1,5 +1,5 @@
 //@version=6
-// TP Fable Scanner - ZONE PROXIMITY ALERTS (build setups, run 2026-08-04 01:50 UTC)
+// TP Fable Scanner - ZONE PROXIMITY ALERTS (build setups, run 2026-08-04 03:37 UTC)
 // SETUP (once per scan run): paste into the Pine editor -> save -> add to any chart ->
 // create ONE alert on this indicator with condition "Any alert() function call" ->
 // pick your notifications. That single alert covers every ticker below.
