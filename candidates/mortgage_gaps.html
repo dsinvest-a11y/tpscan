@@ -1,0 +1,61 @@
+<a href="index.html" style="position:fixed;top:10px;left:10px;background:#111823;color:#E8B04B;border:1px solid #2a3a52;border-radius:6px;padding:5px 10px;font-size:11px;text-decoration:none;z-index:99">&larr; HOME</a><!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>INDIGO — INTRADAY GAP SCANNER</title><style>
+body{background:#0B1220;color:#E6EDF7;font-family:system-ui,
+sans-serif;margin:14px;max-width:960px}
+h1{font-size:19px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border-bottom:1px solid #26314A;padding:7px 8px;
+text-align:left;vertical-align:middle}
+th{color:#7C8AA5;font-size:10.5px;letter-spacing:.6px;
+text-transform:uppercase}
+p{font-size:12.5px;color:#B9C4D8;line-height:1.7}
+a{color:#E8B04B}
+.b{display:inline-block;padding:2px 9px;border-radius:12px;
+font-size:11px;font-weight:700}
+@media(max-width:640px){body{padding:8px!important;font-size:13px}table{display:block;overflow-x:auto;white-space:nowrap}h1{font-size:19px}}</style></head><body>
+<h1>INDIGO <span style="color:#E8B04B">INTRADAY GAP SCANNER</span></h1>
+<p style="color:#8A97B5;font-size:11.5px;margin-top:-6px;
+letter-spacing:.5px">Intelligent Scanning, Systematic Edge</p>
+<p style="color:#E8B04B;font-size:12.5px"><b>Updated 2026-08-05 10:13 UTC · 6:13 AM ET</b></p>
+<a href="intraday_hub.html" style="position:fixed;top:10px;right:14px;background:#1A2440;color:#E8B04B;border:1px solid #E8B04B66;border-radius:8px;padding:5px 12px;font-size:12px;font-weight:700;text-decoration:none;z-index:50">&#8962; HOME</a><p>Notable gaps only (&ge;0.25% from yesterday's close). <b>Outside</b> gaps clear yesterday's entire range and tend to signal continuation; <b>Inside</b> gaps stay within it and are more prone to filling. <b>Novice/Pro</b> is a read on the gap's context (macro trend vs. the last 3 sessions), not a judgment on the ticker. <b>Mortgage</b> is the strict 2-bar mechanical setup, always a subset of Outside.</p><p>Currently 0 inside, 5 outside, 5 mortgage-qualifying, 0 island gap(s).</p><div class="fbar"><b style="color:#e8b04b">FILTERS</b> <span class="fgrp"><label><input type="checkbox" class="fdir" value="up" checked> UP</label> <label><input type="checkbox" class="fdir" value="down" checked> DOWN</label></span> <span class="fgrp"><label><input type="checkbox" class="fstruct" value="inside" checked> INSIDE</label> <label><input type="checkbox" class="fstruct" value="outside" checked> OUTSIDE</label></span> <span class="fgrp"><label><input type="checkbox" class="fclass" value="novice" checked> NOVICE</label> <label><input type="checkbox" class="fclass" value="pro" checked> PRO</label> <label><input type="checkbox" class="fclass" value="unclassified" checked> UNCLASSIFIED</label></span> <span class="fgrp"><label><input type="checkbox" id="fmortonly"> MORTGAGE ONLY</label></span> <span class="fgrp"><label>ZONE LOCATION <select id="fzoneloc"><option value="1">Any</option><option value="2">At least NEAR ZONE</option><option value="3">At least APPROACHING</option><option value="4">IN_ZONE only</option></select></label></span></div><table id="gaptab"><tr><th>Ticker</th><th>Gap</th><th>Structure</th><th>Class</th><th></th><th>Zone Location</th><th>Close &rarr; Open</th></tr><tr data-dir="down" data-struct="outside" data-class="unclassified" data-zloc-rank="1" data-mortgage="1"><td><b>ARE</b></td><td style="color:#E5484D;font-weight:700">DOWN -2.13%</td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#E8B04B22;color:#E8B04B;border:1px solid #E8B04B66">OUTSIDE</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#7C8AA522;color:#7C8AA5;border:1px solid #7C8AA566">UNCLASSIFIED</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#2FBF7122;color:#2FBF71;border:1px solid #2FBF7166">MORTGAGE</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#7C8AA522;color:#7C8AA5;border:1px solid #7C8AA566">OPEN AIR</span></td><td>53.03 &rarr; 51.9</td></tr><tr data-dir="down" data-struct="outside" data-class="unclassified" data-zloc-rank="1" data-mortgage="1"><td><b>DD</b></td><td style="color:#E5484D;font-weight:700">DOWN -7.85%</td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#E8B04B22;color:#E8B04B;border:1px solid #E8B04B66">OUTSIDE</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#7C8AA522;color:#7C8AA5;border:1px solid #7C8AA566">UNCLASSIFIED</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#2FBF7122;color:#2FBF71;border:1px solid #2FBF7166">MORTGAGE</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#7C8AA522;color:#7C8AA5;border:1px solid #7C8AA566">OPEN AIR</span></td><td>141.28 &rarr; 130.19</td></tr><tr data-dir="down" data-struct="outside" data-class="unclassified" data-zloc-rank="1" data-mortgage="1"><td><b>TGT</b></td><td style="color:#E5484D;font-weight:700">DOWN -1.33%</td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#E8B04B22;color:#E8B04B;border:1px solid #E8B04B66">OUTSIDE</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#7C8AA522;color:#7C8AA5;border:1px solid #7C8AA566">UNCLASSIFIED</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#2FBF7122;color:#2FBF71;border:1px solid #2FBF7166">MORTGAGE</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#7C8AA522;color:#7C8AA5;border:1px solid #7C8AA566">OPEN AIR</span></td><td>149.35 &rarr; 147.37</td></tr><tr data-dir="up" data-struct="outside" data-class="unclassified" data-zloc-rank="1" data-mortgage="1"><td><b>WAT</b></td><td style="color:#2FBF71;font-weight:700">UP +2.31%</td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#E8B04B22;color:#E8B04B;border:1px solid #E8B04B66">OUTSIDE</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#7C8AA522;color:#7C8AA5;border:1px solid #7C8AA566">UNCLASSIFIED</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#2FBF7122;color:#2FBF71;border:1px solid #2FBF7166">MORTGAGE</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#7C8AA522;color:#7C8AA5;border:1px solid #7C8AA566">OPEN AIR</span></td><td>374.74 &rarr; 383.39</td></tr><tr data-dir="down" data-struct="outside" data-class="unclassified" data-zloc-rank="1" data-mortgage="1"><td><b>WTW</b></td><td style="color:#E5484D;font-weight:700">DOWN -2.39%</td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#E8B04B22;color:#E8B04B;border:1px solid #E8B04B66">OUTSIDE</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#7C8AA522;color:#7C8AA5;border:1px solid #7C8AA566">UNCLASSIFIED</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#2FBF7122;color:#2FBF71;border:1px solid #2FBF7166">MORTGAGE</span></td><td><span style="display:inline-block;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:700;background:#7C8AA522;color:#7C8AA5;border:1px solid #7C8AA566">OPEN AIR</span></td><td>341.63 &rarr; 333.48</td></tr></table><script>
+(function(){
+ function applyAll(){
+  var dirs=[].slice.call(document.querySelectorAll(".fdir:checked")).map(function(e){return e.value;});
+  var structs=[].slice.call(document.querySelectorAll(".fstruct:checked")).map(function(e){return e.value;});
+  var classes=[].slice.call(document.querySelectorAll(".fclass:checked")).map(function(e){return e.value;});
+  var mortOnly=document.getElementById("fmortonly").checked;
+  var minZoneLoc=parseFloat(document.getElementById("fzoneloc").value);
+  document.querySelectorAll("#gaptab tr[data-dir]").forEach(function(tr){
+   var ok = dirs.indexOf(tr.dataset.dir) >= 0
+     && structs.indexOf(tr.dataset.struct) >= 0
+     && classes.indexOf(tr.dataset.class) >= 0
+     && (!mortOnly || tr.dataset.mortgage === "1")
+     && parseFloat(tr.dataset.zlocRank) >= minZoneLoc;
+   tr.style.display = ok ? "" : "none";
+  });
+ }
+ document.querySelectorAll(".fdir, .fstruct, .fclass, #fmortonly, #fzoneloc").forEach(function(el){
+  el.addEventListener("change", applyAll);
+ });
+ // 2026-08-03 (greenlit): hash-based pre-filtering, matching the
+ // convention already used elsewhere (zonestack.html#approaching,
+ // cog.html#front/#back) -- previously EVERY gap tile linked to a
+ // different hash but nothing on this page ever read it, so every
+ // tile opened with all filters on regardless of which was clicked.
+ // #island needs no filter change here at all -- it's a separate
+ // table below this one, id="island" on its own header handles the
+ // scroll natively via the browser's own anchor resolution.
+ var hash = window.location.hash;
+ if (hash === "#inside" || hash === "#outside") {
+  var wantStruct = hash === "#inside" ? "inside" : "outside";
+  document.querySelectorAll(".fstruct").forEach(function(el){
+   el.checked = (el.value === wantStruct);
+  });
+  applyAll();
+ } else if (hash === "#mortgage") {
+  document.getElementById("fmortonly").checked = true;
+  applyAll();
+ }
+})();
+</script><h3 id="island" style="color:#E8B04B;font-size:13px;margin-top:18px">ISLAND GAPS</h3><p style="font-size:11.5px;color:#7C8AA5">A gap in one direction, a brief isolated cluster, then a gap back the other way — a reversal signal, not continuation.</p><p>No island gaps this run.</p><p style="font-size:10px;color:#4A5670;margin-top:24px">build v1 &middot; 2026-08-05 10:13 UTC · 6:13 AM ET</p></body></html>
