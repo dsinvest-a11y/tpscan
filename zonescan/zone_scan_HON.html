@@ -538,10 +538,33 @@ function _tpTfs(){var m={monthly:"M",weekly:"W",daily:"D","4h":"H4","1h":"H1","3
  return Array.from(document.querySelectorAll(".ftf")).filter(function(c){return c.checked;}).map(function(c){return m[c.value];});}
 function _tpFilter(src){var tfs=_tpTfs();
  var NL=String.fromCharCode(10);
- return src.split(NL).filter(function(l){
+ var lines=src.split(NL);
+ var out=[];
+ var pendingGuard=null,pendingZones=[];
+ function flush(){
+  if(pendingGuard!==null){
+   if(pendingZones.length){out.push(pendingGuard);
+    for(var i=0;i<pendingZones.length;i++)out.push(pendingZones[i]);}
+  }
+  pendingGuard=null;pendingZones=[];
+ }
+ for(var li=0;li<lines.length;li++){
+  var l=lines[li];
+  if(/^\s*if syminfo\.ticker ==/.test(l)){
+   flush();
+   pendingGuard=l;
+   continue;
+  }
   var mm=l.match(/"(M|W|D|H4|H1|M30) [^"]*"/);
-  if(!mm)return true;
-  return tfs.indexOf(mm[1])>=0;}).join(NL);}
+  if(mm&&pendingGuard!==null){
+   if(tfs.indexOf(mm[1])>=0)pendingZones.push(l);
+   continue;
+  }
+  flush();
+  out.push(l);
+ }
+ flush();
+ return out.join(NL);}
 function _tpMin(){var s=document.querySelector("select.fmin, select#minsc, select[name=minscore]");
  if(s)return String(s.value);
  var m=document.body.innerHTML.match(/min score (\d+)/i);
